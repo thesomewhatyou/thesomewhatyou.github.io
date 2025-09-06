@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gabriel - thesomewhatyou | Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/feather-icons"></script>
+</head>
+<body>
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span>Gabriel</span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#hero" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#presence" class="nav-link">Presence</a></li>
+                <li><a href="#content" class="nav-link">Content</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="hero">
+            <div class="hero-background"></div>
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">
+                        <span class="title-main">Gabriel</span>
+                        <span class="title-sub">thesomewhatyou</span>
+                    </h1>
+                    <p class="hero-description">Minecraft Modpack Developer • Content Creator • Open Source Enthusiast</p>
+                    <div class="hero-tagline">Hi! I make Minecraft things.</div>
+                </div>
+                <div class="social-links">
+                    <a href="https://github.com/thesomewhatyou" target="_blank" class="social-link" aria-label="GitHub">
+                        <i data-feather="github"></i>
+                    </a>
+                    <a href="https://modrinth.com/user/gabrielpolikerpaul" target="_blank" class="social-link" aria-label="Modrinth">
+                        <i data-feather="package"></i>
+                    </a>
+                    <a href="https://x.com/thesomewhatyou" target="_blank" class="social-link" aria-label="Twitter">
+                        <i data-feather="twitter"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about section">
+            <div class="container">
+                <h2 class="section-title">About Me</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>I'm Gabriel, a passionate student developer known online as "thesomewhatyou". I specialize in creating Minecraft optimization solutions and building tools that make a difference in the community.</p>
+                        <p>My work focuses on open source development, automation, and helping people get the most out of their gaming experience, especially on older hardware. I believe in the power of optimization and making technology accessible to everyone.</p>
+                        <p>When I'm not coding, you'll find me creating content, working on animations, or contributing to various open source projects like OptimiHost.</p>
+                    </div>
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <span class="stat-number" data-count="254">0</span>
+                            <span class="stat-label">Total Downloads</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" data-count="145">0</span>
+                            <span class="stat-label">YouTube Subscribers</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" data-count="4">0</span>
+                            <span class="stat-label">GitHub Followers</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="projects section">
+            <div class="container">
+                <h2 class="section-title">Featured Projects</h2>
+                <div class="projects-grid">
+                    <div class="project-card main-project" data-project="toscr">
+                        <div class="project-header">
+                            <h3>TOSCR Project</h3>
+                            <span class="project-status active">Active</span>
+                        </div>
+                        <p class="project-description">thesomewhatyou's Old Computer MC Revival - A Minecraft modpack designed to help revive old PCs with integrated graphics for optimal gameplay.</p>
+                        <div class="project-stats">
+                            <span class="stat"><i data-feather="download"></i> 254 downloads</span>
+                            <span class="stat"><i data-feather="users"></i> 1 follower</span>
+                        </div>
+                        <div class="project-tags">
+                            <span class="tag">Optimization</span>
+                            <span class="tag">Minecraft</span>
+                            <span class="tag">Modrinth</span>
+                        </div>
+                    </div>
+
+                    <div class="project-card" data-project="horror">
+                        <div class="project-header">
+                            <h3>Horror Hell</h3>
+                            <span class="project-status">1.19.2 Forge</span>
+                        </div>
+                        <p class="project-description">A horror-themed Minecraft modpack featuring scaries and creepypastas with shader support.</p>
+                        <div class="project-tags">
+                            <span class="tag">Horror</span>
+                            <span class="tag">Survival</span>
+                            <span class="tag">Modrinth</span>
+                        </div>
+                    </div>
+
+                    <div class="project-card" data-project="gabeos">
+                        <div class="project-header">
+                            <h3>GabeOS</h3>
+                            <span class="project-status active">Active</span>
+                        </div>
+                        <p class="project-description">The core OS project—pushing boundaries in open-source systems.</p>
+                        <div class="project-tags">
+                            <span class="tag">OS Development</span>
+                            <span class="tag">Open Source</span>
+                            <span class="tag">GitHub</span>
+                        </div>
+                    </div>
+
+                    <div class="project-card" data-project="gabeos-workflow">
+                        <div class="project-header">
+                            <h3>GabeOS-Workflow-Dev</h3>
+                            <span class="project-status active">Active</span>
+                        </div>
+                        <p class="project-description">Development tools and automated workflows for the GabeOS ecosystem.</p>
+                        <div class="project-tags">
+                            <span class="tag">CI/CD</span>
+                            <span class="tag">Automation</span>
+                            <span class="tag">GitHub</span>
+                        </div>
+                    </div>
+
+                    <div class="project-card" data-project="p2installer">
+                        <div class="project-header">
+                            <h3>P2Installer</h3>
+                            <span class="project-status">Maintained</span>
+                        </div>
+                        <p class="project-description">Streamlining installing for Player2 on a Linux distro.</p>
+                        <div class="project-tags">
+                            <span class="tag">Linux</span>
+                            <span class="tag">Installer</span>
+                            <span class="tag">GitHub</span>
+                        </div>
+                    </div>
+
+                    <div class="project-card" data-project="optimihost">
+                        <div class="project-header">
+                            <h3>OptimiHost</h3>
+                            <span class="project-status active">Contributor</span>
+                        </div>
+                        <p class="project-description">Contributing to hosting solutions and server optimization for improved performance.</p>
+                        <div class="project-tags">
+                            <span class="tag">Hosting</span>
+                            <span class="tag">Optimization</span>
+                            <span class="tag">Team</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Online Presence Section -->
+        <section id="presence" class="presence section">
+            <div class="container">
+                <h2 class="section-title">Online Presence</h2>
+                <div class="presence-grid">
+                    <div class="presence-card">
+                        <div class="presence-icon">
+                            <i data-feather="github"></i>
+                        </div>
+                        <h3>GitHub</h3>
+                        <p>Passionate about open source, automation, and building tools</p>
+                        <div class="presence-stats">
+                            <span>4 followers • 4 following</span>
+                        </div>
+                        <a href="https://github.com/thesomewhatyou" target="_blank" class="presence-link">Visit Profile</a>
+                    </div>
+
+                    <div class="presence-card">
+                        <div class="presence-icon">
+                            <i data-feather="package"></i>
+                        </div>
+                        <h3>Modrinth</h3>
+                        <p>Minecraft modpack developer with optimization focus</p>
+                        <div class="presence-stats">
+                            <span>2 projects • 254 downloads</span>
+                        </div>
+                        <a href="https://modrinth.com/user/gabrielpolikerpaul" target="_blank" class="presence-link">View Mods</a>
+                    </div>
+
+                    <div class="presence-card">
+                        <div class="presence-icon">
+                            <i data-feather="twitter"></i>
+                        </div>
+                        <h3>Twitter</h3>
+                        <p>Updates on projects, development insights, and tech discussions</p>
+                        <div class="presence-stats">
+                            <span>@thesomewhatyou</span>
+                        </div>
+                        <a href="https://x.com/thesomewhatyou" target="_blank" class="presence-link">Follow</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Content Creation Section -->
+        <section id="content" class="content section">
+            <div class="container">
+                <h2 class="section-title">Content Creation</h2>
+                <div class="content-categories">
+                    <div class="content-category">
+                        <h3><i data-feather="video"></i> YouTube Videos</h3>
+                        <ul>
+                            <li>Out In Space v1 Episode 3</li>
+                            <li>How To Use ChatClef</li>
+                            <li>thesomewhatyou reviews: Elefant AI</li>
+                            <li>Minecraft mod tutorials and reviews</li>
+                        </ul>
+                    </div>
+                    <div class="content-category">
+                        <h3><i data-feather="package"></i> Minecraft Modpacks</h3>
+                        <ul>
+                            <li>TOSCR Project (Old Computer MC Revival)</li>
+                            <li>Horror Hell</li>
+                            <li>Various optimization modpack versions</li>
+                        </ul>
+                    </div>
+                    <div class="content-category">
+                        <h3><i data-feather="film"></i> Animation</h3>
+                        <ul>
+                            <li>Out In Space series</li>
+                            <li>ROBLOX animations</li>
+                            <li>Short film projects</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="skills-section">
+                    <h3>Skills & Interests</h3>
+                    <div class="skills-grid">
+                        <span class="skill-tag">Open Source Development</span>
+                        <span class="skill-tag">Minecraft Modding & Optimization</span>
+                        <span class="skill-tag">Automation & CI/CD</span>
+                        <span class="skill-tag">Systems Programming</span>
+                        <span class="skill-tag">Privacy & Security</span>
+                        <span class="skill-tag">Content Creation</span>
+                        <span class="skill-tag">Animation</span>
+                        <span class="skill-tag">Server Administration</span>
+                        <span class="skill-tag">ReactJS Development</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact section">
+            <div class="container">
+                <h2 class="section-title">Get In Touch</h2>
+                <div class="contact-content">
+                    <div class="contact-text">
+                        <p>Interested in collaborating, have questions about my projects, or just want to chat about Minecraft optimization? I'm always open to connecting with fellow developers and creators!</p>
+                    </div>
+                    <div class="contact-links">
+                        <a href="https://github.com/thesomewhatyou" target="_blank" class="contact-link">
+                            <i data-feather="github"></i>
+                            <span>GitHub</span>
+                        </a>
+                        <a href="https://modrinth.com/user/gabrielpolikerpaul" target="_blank" class="contact-link">
+                            <i data-feather="package"></i>
+                            <span>Modrinth</span>
+                        </a>
+                        <a href="https://x.com/thesomewhatyou" target="_blank" class="contact-link">
+                            <i data-feather="twitter"></i>
+                            <span>Twitter</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Gabriel (thesomewhatyou). Open source enthusiast making Minecraft things.</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
