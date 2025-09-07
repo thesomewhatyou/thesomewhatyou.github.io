@@ -24,7 +24,7 @@
             setupScrollEffects();
             setupAnimations();
             
-            console.log('✅ Portfolio initialized successfully - 6 projects, no Linktree!');
+            console.log('✅ Portfolio initialized successfully!');
             
         } catch (error) {
             console.warn('Non-critical initialization error:', error);
