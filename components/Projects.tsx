@@ -71,7 +71,7 @@ export default function Projects() {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section id="projects" className="relative overflow-hidden bg-background-secondary px-4 py-36">
+    <section id="projects" className="relative overflow-hidden bg-background-secondary py-36">
       <div className="absolute inset-0 grid-bg opacity-20" />
       <div className="absolute inset-0 opacity-10">
         <div className="absolute right-1/3 top-1/3 h-96 w-96 rounded-full bg-accent blur-3xl" />
@@ -101,22 +101,20 @@ export default function Projects() {
           {projects.map((project, index) => (
             <motion.div
               key={project.id}
-              className="group relative flex h-full flex-col overflow-hidden rounded-3xl border border-border bg-card/70 p-7 backdrop-blur-md transition-all duration-300 hover:border-primary/50"
+              className="group relative flex h-full flex-col items-center overflow-hidden rounded-3xl border border-border bg-card/70 p-8 text-center backdrop-blur-md transition-all duration-300 hover:border-primary/50"
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              whileHover={{ y: -6 }}
+              whileHover={{ y: -8 }}
             >
               <div className="absolute right-0 top-0 h-0.5 w-0 bg-gradient-to-r from-primary to-accent transition-all duration-500 group-hover:w-full" />
 
-              <div className="flex h-full flex-col gap-4">
-                <div className="flex items-start justify-between gap-3">
-                  <div>
-                    <h3 className="font-['Poppins'] text-2xl font-bold text-foreground">{project.title}</h3>
-                    {project.subtitle && (
-                      <p className="mt-1 font-mono text-sm text-muted">{project.subtitle}</p>
-                    )}
-                  </div>
+              <div className="flex h-full w-full flex-col items-center gap-6">
+                <div className="flex flex-col items-center gap-3">
+                  <h3 className="font-['Poppins'] text-2xl font-bold text-foreground">{project.title}</h3>
+                  {project.subtitle && (
+                    <p className="font-mono text-sm text-muted">{project.subtitle}</p>
+                  )}
                   <span
                     className={`whitespace-nowrap rounded-full border px-3 py-1 font-mono text-xs font-medium ${
                       project.status === 'Active'
@@ -128,10 +126,10 @@ export default function Projects() {
                   </span>
                 </div>
 
-                <p className="leading-relaxed text-muted">{project.description}</p>
+                <p className="mx-auto max-w-sm leading-relaxed text-muted">{project.description}</p>
 
                 {project.stats && (
-                  <div className="flex flex-wrap gap-3 text-sm text-muted">
+                  <div className="flex flex-wrap items-center justify-center gap-3 text-sm text-muted">
                     {project.stats.map((stat, idx) => (
                       <div key={idx} className="flex items-center gap-2 font-mono">
                         <stat.icon size={16} />
@@ -141,7 +139,7 @@ export default function Projects() {
                   </div>
                 )}
 
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap justify-center gap-2">
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
@@ -156,8 +154,8 @@ export default function Projects() {
                   href={project.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-auto inline-flex items-center gap-2 font-medium text-primary transition-colors hover:text-accent"
-                  whileHover={{ x: 5 }}
+                  className="mt-auto inline-flex items-center gap-2 rounded-full border border-border/60 px-4 py-2 text-sm font-semibold text-primary transition-all duration-300 hover:border-primary/60 hover:text-accent"
+                  whileHover={{ x: 6 }}
                 >
                   View Project
                   <ArrowUpRight

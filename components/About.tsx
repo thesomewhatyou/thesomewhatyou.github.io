@@ -42,16 +42,16 @@ export default function About() {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section id="about" className="relative overflow-hidden bg-background-secondary px-4 py-36">
+    <section id="about" className="relative overflow-hidden bg-background-secondary py-36">
       <div className="absolute inset-0 grid-bg opacity-30" />
       <div className="absolute inset-0 opacity-10">
         <div className="absolute left-1/4 top-1/4 h-96 w-96 rounded-full bg-primary blur-3xl" />
         <div className="absolute bottom-1/4 right-1/4 h-96 w-96 rounded-full bg-accent blur-3xl" />
       </div>
 
-      <div className="relative z-10 mx-auto max-w-5xl px-4 sm:px-6" ref={ref}>
+      <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6" ref={ref}>
         <motion.h2
-          className="mb-12 text-center font-['Poppins'] text-5xl font-bold text-foreground md:text-6xl"
+          className="mb-16 text-center font-['Poppins'] text-5xl font-bold text-foreground md:text-6xl"
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
@@ -60,7 +60,7 @@ export default function About() {
         </motion.h2>
 
         <motion.div
-          className="mx-auto max-w-3xl space-y-6 text-center text-lg leading-relaxed text-muted"
+          className="mx-auto max-w-4xl space-y-7 text-center text-lg leading-relaxed text-muted"
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.2 }}
@@ -81,7 +81,7 @@ export default function About() {
         </motion.div>
 
         <motion.div
-          className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
+          className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-3"
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.35 }}
@@ -89,13 +89,13 @@ export default function About() {
           {stats.map((stat, index) => (
             <motion.div
               key={stat.label}
-              className="group relative flex flex-col items-center gap-4 overflow-hidden rounded-3xl border border-border bg-card/70 p-8 text-center backdrop-blur-sm transition-all duration-300 hover:border-primary/50"
+              className="group relative flex flex-col items-center gap-5 overflow-hidden rounded-3xl border border-border bg-card/70 p-8 text-center backdrop-blur-sm transition-all duration-300 hover:border-primary/50"
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.45 + index * 0.1 }}
               whileHover={{ scale: 1.05, y: -6 }}
             >
-              <div className="relative z-10 flex flex-col items-center gap-4">
+              <div className="relative z-10 flex flex-col items-center gap-5">
                 <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 text-primary">
                   <stat.icon size={28} />
                 </div>

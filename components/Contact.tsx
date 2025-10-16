@@ -37,7 +37,7 @@ export default function Contact() {
         <div className="absolute left-1/2 top-1/2 h-96 w-96 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary blur-3xl" />
       </div>
 
-      <div className="relative z-10 mx-auto max-w-4xl px-4 sm:px-6 text-center" ref={ref}>
+      <div className="relative z-10 mx-auto max-w-5xl px-4 sm:px-6 text-center" ref={ref}>
         <motion.div
           className="mx-auto mb-8 flex h-20 w-20 items-center justify-center rounded-3xl border border-primary/40 bg-card/80 text-primary shadow-[0_40px_90px_-45px_rgba(74,222,128,0.55)]"
           initial={{ opacity: 0, scale: 0.8 }}
@@ -57,7 +57,7 @@ export default function Contact() {
         </motion.h2>
 
         <motion.p
-          className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-muted"
+          className="mx-auto mt-8 max-w-2xl text-lg leading-relaxed text-muted"
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.3 }}
@@ -67,7 +67,7 @@ export default function Contact() {
         </motion.p>
 
         <motion.div
-          className="mt-12 flex flex-wrap justify-center gap-6"
+          className="mt-12 flex flex-wrap justify-center gap-8"
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.45 }}
@@ -78,16 +78,16 @@ export default function Contact() {
               href={link.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative flex items-center gap-3 rounded-3xl border border-border/60 bg-card/80 px-7 py-4 text-left backdrop-blur-md transition-all duration-300 hover:border-primary/60"
+              className="group relative flex flex-col items-center gap-4 rounded-3xl border border-border/60 bg-card/80 px-8 py-6 text-center backdrop-blur-md transition-all duration-300 hover:border-primary/60"
               initial={{ opacity: 0, scale: 0.85 }}
               animate={isInView ? { opacity: 1, scale: 1 } : {}}
               transition={{ duration: 0.4, delay: 0.5 + index * 0.1 }}
-              whileHover={{ y: -6 }}
+              whileHover={{ y: -8 }}
             >
-              <div className={`flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br ${link.accent} text-white shadow-lg` }>
+              <div className={`flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br ${link.accent} text-white shadow-lg`}>
                 <link.icon size={22} />
               </div>
-              <div>
+              <div className="flex flex-col items-center gap-1 text-center">
                 <p className="text-sm font-semibold text-muted">Connect on</p>
                 <p className="text-lg font-semibold text-foreground">{link.label}</p>
               </div>

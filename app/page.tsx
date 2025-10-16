@@ -12,7 +12,7 @@ export default function Home() {
   return (
     <>
       <Navigation />
-      <main className="flex flex-col">
+      <main className="flex w-full flex-col items-center">
         <Hero />
         <About />
         <Skills />

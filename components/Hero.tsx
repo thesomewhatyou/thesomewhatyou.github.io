@@ -14,7 +14,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative flex min-h-screen items-center justify-center overflow-hidden bg-background px-4 pt-28 pb-20"
+      className="relative flex min-h-screen items-center justify-center overflow-hidden bg-background px-4 pt-32 pb-32"
     >
       <div className="absolute inset-0 grid-bg opacity-40" />
 
@@ -67,19 +67,19 @@ export default function Hero() {
         />
       ))}
 
-      <div className="relative z-10 mx-auto max-w-5xl text-center">
+      <div className="relative z-10 mx-auto max-w-6xl text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.15 }}
-          className="mb-6 inline-flex items-center gap-2 rounded-full border border-border/60 bg-card/70 px-5 py-2.5 text-sm font-medium text-muted backdrop-blur-sm"
+          className="mb-8 inline-flex items-center gap-2 rounded-full border border-border/60 bg-card/70 px-5 py-2.5 text-sm font-medium text-muted backdrop-blur-sm"
         >
           <Zap size={16} className="text-accent" />
           <span>Available for collaboration</span>
         </motion.div>
 
         <motion.h1
-          className="mb-6 font-['Poppins'] text-6xl font-extrabold leading-tight tracking-tight text-foreground sm:text-7xl md:text-8xl lg:text-9xl"
+          className="mb-8 font-['Poppins'] text-6xl font-extrabold leading-tight tracking-tight text-foreground sm:text-7xl md:text-8xl lg:text-9xl"
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.7, delay: 0.25 }}
@@ -88,7 +88,7 @@ export default function Hero() {
         </motion.h1>
 
         <motion.div
-          className="mb-8 inline-flex items-center gap-2.5 rounded-2xl bg-card/60 px-6 py-3 backdrop-blur-md"
+          className="mb-10 inline-flex items-center gap-2.5 rounded-2xl bg-card/60 px-6 py-3 backdrop-blur-md"
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.4 }}
@@ -100,7 +100,7 @@ export default function Hero() {
         </motion.div>
 
         <motion.p
-          className="mx-auto mb-5 max-w-3xl text-xl leading-relaxed text-muted sm:text-2xl md:mb-6"
+          className="mx-auto mb-6 max-w-3xl text-xl leading-relaxed text-muted sm:text-2xl md:mb-7"
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.55 }}
@@ -109,7 +109,7 @@ export default function Hero() {
         </motion.p>
 
         <motion.p
-          className="mb-12 font-mono text-lg text-muted/80 md:text-xl"
+          className="mb-14 font-mono text-lg text-muted/80 md:text-xl"
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.7 }}
@@ -118,7 +118,7 @@ export default function Hero() {
         </motion.p>
 
         <motion.div
-          className="flex flex-wrap justify-center gap-4"
+          className="flex flex-wrap justify-center gap-5"
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.85 }}
@@ -162,7 +162,7 @@ export default function Hero() {
         </motion.div>
 
         <motion.div
-          className="mx-auto mt-12 flex max-w-4xl flex-wrap items-center justify-center gap-4 border-y border-border/50 py-8"
+          className="mx-auto mt-14 flex max-w-4xl flex-wrap items-center justify-center gap-6 border-y border-border/50 py-10"
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 1.1 }}
@@ -189,7 +189,7 @@ export default function Hero() {
       </div>
 
       <motion.div
-        className="absolute bottom-10 left-1/2 flex -translate-x-1/2 flex-col items-center gap-2"
+        className="absolute bottom-12 left-1/2 flex -translate-x-1/2 flex-col items-center gap-2"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 1.3 }}
