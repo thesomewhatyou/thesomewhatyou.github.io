@@ -17,7 +17,6 @@ const projects = [
     ],
     tags: ['Optimization', 'Minecraft', 'Modrinth'],
     status: 'Active',
-    featured: true,
     link: 'https://modrinth.com/user/gabrielpolikerpaul',
   },
   {
@@ -72,15 +71,15 @@ export default function Projects() {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section id="projects" className="relative overflow-hidden bg-background-secondary py-32 px-4">
+    <section id="projects" className="relative overflow-hidden bg-background-secondary py-36">
       <div className="absolute inset-0 grid-bg opacity-20" />
       <div className="absolute inset-0 opacity-10">
         <div className="absolute right-1/3 top-1/3 h-96 w-96 rounded-full bg-accent blur-3xl" />
       </div>
 
-      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" ref={ref}>
+      <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6" ref={ref}>
         <motion.h2
-          className="mb-20 text-center font-['Poppins'] text-5xl font-bold text-foreground md:text-6xl"
+          className="mb-12 text-center font-['Poppins'] text-5xl font-bold text-foreground md:text-6xl"
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
@@ -88,76 +87,85 @@ export default function Projects() {
           Featured <span className="text-primary">Projects</span>
         </motion.h2>
 
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        <motion.p
+          className="mx-auto mb-16 max-w-3xl text-center text-lg leading-relaxed text-muted"
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
+          A snapshot of the work I'm most proud of—modpacks, tooling, and open source contributions designed to create
+          smooth experiences on any hardware.
+        </motion.p>
+
+        <div className="grid items-stretch gap-8 sm:grid-cols-2 lg:grid-cols-3">
           {projects.map((project, index) => (
             <motion.div
               key={project.id}
-              className={`
-                group relative flex flex-col overflow-hidden rounded-3xl border border-border bg-card/70 p-6 backdrop-blur-md transition-all duration-300 hover:border-primary/50
-                ${project.featured ? 'md:col-span-2 lg:col-span-3' : ''}
-              `}
+              className="group relative flex h-full flex-col items-center overflow-hidden rounded-3xl border border-border bg-card/70 p-8 text-center backdrop-blur-md transition-all duration-300 hover:border-primary/50"
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              whileHover={{ y: -5 }}
+              whileHover={{ y: -8 }}
             >
               <div className="absolute right-0 top-0 h-0.5 w-0 bg-gradient-to-r from-primary to-accent transition-all duration-500 group-hover:w-full" />
 
-              <div className="mb-4 flex items-start justify-between">
-                <div>
+              <div className="flex h-full w-full flex-col items-center gap-6">
+                <div className="flex flex-col items-center gap-3">
                   <h3 className="font-['Poppins'] text-2xl font-bold text-foreground">{project.title}</h3>
-                  {project.subtitle && <p className="mt-1 font-mono text-sm text-muted">{project.subtitle}</p>}
+                  {project.subtitle && (
+                    <p className="font-mono text-sm text-muted">{project.subtitle}</p>
+                  )}
+                  <span
+                    className={`whitespace-nowrap rounded-full border px-3 py-1 font-mono text-xs font-medium ${
+                      project.status === 'Active'
+                        ? 'border-primary/30 bg-primary/10 text-primary'
+                        : 'border-muted/30 bg-muted/10 text-muted'
+                    }`}
+                  >
+                    {project.status}
+                  </span>
                 </div>
-                <span
-                  className={`whitespace-nowrap rounded-full border px-3 py-1 font-mono text-xs font-medium ${
-                    project.status === 'Active'
-                      ? 'border-primary/30 bg-primary/10 text-primary'
-                      : 'border-muted/30 bg-muted/10 text-muted'
-                  }`}
-                >
-                  {project.status}
-                </span>
-              </div>
 
-              <p className="mb-4 flex-grow leading-relaxed text-muted">{project.description}</p>
+                <p className="mx-auto max-w-sm leading-relaxed text-muted">{project.description}</p>
 
-              {project.stats && (
-                <div className="mb-4 flex gap-4">
-                  {project.stats.map((stat, idx) => (
-                    <div key={idx} className="flex items-center gap-2 text-sm text-muted">
-                      <stat.icon size={16} />
-                      <span className="font-mono">{stat.label}</span>
-                    </div>
+                {project.stats && (
+                  <div className="flex flex-wrap items-center justify-center gap-3 text-sm text-muted">
+                    {project.stats.map((stat, idx) => (
+                      <div key={idx} className="flex items-center gap-2 font-mono">
+                        <stat.icon size={16} />
+                        <span>{stat.label}</span>
+                      </div>
+                    ))}
+                  </div>
+                )}
+
+                <div className="flex flex-wrap justify-center gap-2">
+                  {project.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="rounded-full border border-border/60 bg-background/40 px-3 py-1 font-mono text-xs font-medium text-muted"
+                    >
+                      {tag}
+                    </span>
                   ))}
                 </div>
-              )}
 
-              <div className="mb-4 flex flex-wrap gap-2">
-                {project.tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="rounded-full border border-border/60 bg-background/40 px-3 py-1 font-mono text-xs font-medium text-muted"
-                  >
-                    {tag}
-                  </span>
-                ))}
+                <motion.a
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-auto inline-flex items-center gap-2 rounded-full border border-border/60 px-4 py-2 text-sm font-semibold text-primary transition-all duration-300 hover:border-primary/60 hover:text-accent"
+                  whileHover={{ x: 6 }}
+                >
+                  View Project
+                  <ArrowUpRight
+                    size={16}
+                    className="transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1"
+                  />
+                </motion.a>
               </div>
 
-              <motion.a
-                href={project.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group/link mt-auto inline-flex items-center gap-2 font-medium text-primary transition-colors hover:text-accent"
-                whileHover={{ x: 5 }}
-              >
-                View Project
-                <ArrowUpRight
-                  size={16}
-                  className="transition-transform group-hover/link:translate-x-1 group-hover/link:-translate-y-1"
-                />
-              </motion.a>
-
-              <div className="absolute inset-0 rounded-3xl bg-primary/0 transition-all duration-300 group-hover:bg-primary/5 pointer-events-none" />
+              <div className="pointer-events-none absolute inset-0 rounded-3xl bg-primary/0 transition-all duration-300 group-hover:bg-primary/5" />
             </motion.div>
           ))}
         </div>

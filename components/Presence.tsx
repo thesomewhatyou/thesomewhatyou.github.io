@@ -37,13 +37,13 @@ export default function Presence() {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section id="presence" className="relative overflow-hidden bg-background py-32">
+    <section id="presence" className="relative overflow-hidden bg-background py-36">
       <div className="absolute inset-0 grid-bg opacity-25" />
       <div className="absolute inset-0 opacity-10">
         <div className="absolute left-1/3 top-16 h-80 w-80 rounded-full bg-primary blur-3xl" />
       </div>
 
-      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" ref={ref}>
+      <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6" ref={ref}>
         <motion.h2
           className="mb-16 text-center font-['Poppins'] text-5xl font-semibold text-foreground md:text-6xl"
           initial={{ opacity: 0, y: 30 }}
@@ -57,7 +57,7 @@ export default function Presence() {
           {platforms.map((platform, index) => (
             <motion.div
               key={platform.name}
-              className="group relative overflow-hidden rounded-3xl border border-border bg-card/75 p-8 backdrop-blur-xl transition-all duration-300 hover:border-primary/50"
+              className="group relative flex flex-col items-center gap-5 overflow-hidden rounded-3xl border border-border bg-card/75 p-8 text-center backdrop-blur-xl transition-all duration-300 hover:border-primary/50"
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: index * 0.1 }}
@@ -69,15 +69,15 @@ export default function Presence() {
                 <platform.icon size={26} />
               </div>
 
-              <h3 className="relative mt-6 font-['Poppins'] text-2xl font-semibold text-foreground">
+              <h3 className="relative font-['Poppins'] text-2xl font-semibold text-foreground">
                 {platform.name}
               </h3>
 
-              <p className="relative mt-4 text-sm leading-relaxed text-muted">
+              <p className="relative mx-auto max-w-xs text-sm leading-relaxed text-muted">
                 {platform.description}
               </p>
 
-              <p className="relative mt-6 font-mono text-xs uppercase tracking-[0.3em] text-muted">
+              <p className="relative font-mono text-xs uppercase tracking-[0.3em] text-muted">
                 {platform.stats}
               </p>
 
@@ -85,7 +85,7 @@ export default function Presence() {
                 href={platform.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="relative mt-8 inline-flex items-center gap-2 rounded-full border border-border/60 px-4 py-2 text-sm font-semibold text-foreground transition-all duration-300 hover:border-primary/60 hover:text-primary"
+                className="relative inline-flex items-center justify-center gap-2 rounded-full border border-border/60 px-4 py-2 text-sm font-semibold text-foreground transition-all duration-300 hover:border-primary/60 hover:text-primary"
                 whileHover={{ x: 6 }}
               >
                 Visit profile

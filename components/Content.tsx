@@ -49,13 +49,13 @@ export default function Content() {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section id="content" className="relative overflow-hidden bg-background-secondary py-32">
+    <section id="content" className="relative overflow-hidden bg-background-secondary py-36">
       <div className="absolute inset-0 grid-bg opacity-20" />
       <div className="absolute inset-0 opacity-10">
         <div className="absolute bottom-1/4 right-1/4 h-96 w-96 rounded-full bg-accent blur-3xl" />
       </div>
 
-      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" ref={ref}>
+      <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6" ref={ref}>
         <motion.h2
           className="mb-20 text-center font-['Poppins'] text-5xl font-bold text-foreground md:text-6xl"
           initial={{ opacity: 0, y: 30 }}
@@ -69,13 +69,13 @@ export default function Content() {
           {contentCategories.map((category, index) => (
             <motion.div
               key={category.title}
-              className="group rounded-3xl border border-border bg-card/70 p-6 backdrop-blur-md transition-all duration-300 hover:border-primary/50"
+              className="group rounded-3xl border border-border bg-card/70 p-7 backdrop-blur-md transition-all duration-300 hover:border-primary/50"
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: index * 0.1 }}
-              whileHover={{ y: -5 }}
+              whileHover={{ y: -6 }}
             >
-              <div className="mb-5 flex items-center gap-3">
+              <div className="mb-5 flex flex-col items-center gap-3 text-center">
                 <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary">
                   <category.icon size={24} />
                 </div>
@@ -87,7 +87,7 @@ export default function Content() {
                 {category.items.map((item) => (
                   <motion.li
                     key={item}
-                    className="border-l-2 border-border/60 pl-4 text-muted transition-colors hover:border-primary hover:text-foreground"
+                    className="border-l-2 border-border/60 py-1 pl-4 text-muted transition-colors hover:border-primary hover:text-foreground"
                     whileHover={{ x: 5 }}
                   >
                     {item}
