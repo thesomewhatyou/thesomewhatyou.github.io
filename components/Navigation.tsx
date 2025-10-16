@@ -61,7 +61,7 @@ export default function Navigation() {
     <>
       <motion.nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled ? 'bg-[#0a0a0f]/95 backdrop-blur-md shadow-lg' : 'bg-[#0a0a0f]/90 backdrop-blur-sm'
+          isScrolled ? 'bg-black/80 backdrop-blur-xl border-b border-white/5 shadow-lg shadow-[#00ff88]/5' : 'bg-black/40 backdrop-blur-sm'
         }`}
         initial={{ y: -100 }}
         animate={{ y: 0 }}
@@ -71,22 +71,22 @@ export default function Navigation() {
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
             <motion.div
-              className="text-xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent"
+              className="text-xl font-bold font-['Space_Grotesk'] text-[#00ff88]"
               whileHover={{ scale: 1.05 }}
             >
-              Gabriel
+              GABRIEL
             </motion.div>
 
             {/* Desktop Navigation */}
-            <div className="hidden md:flex space-x-8">
+            <div className="hidden md:flex gap-8">
               {navItems.map((item) => (
                 <motion.button
                   key={item.label}
                   onClick={() => scrollToSection(item.href)}
                   className={`text-sm font-medium transition-colors relative ${
                     activeSection === item.href.slice(1)
-                      ? 'text-white'
-                      : 'text-gray-300 hover:text-white'
+                      ? 'text-[#00ff88]'
+                      : 'text-gray-400 hover:text-white'
                   }`}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
@@ -94,7 +94,7 @@ export default function Navigation() {
                   {item.label}
                   {activeSection === item.href.slice(1) && (
                     <motion.div
-                      className="absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-purple-400 to-pink-400"
+                      className="absolute -bottom-1 left-0 right-0 h-0.5 bg-[#00ff88]"
                       layoutId="underline"
                     />
                   )}
@@ -104,7 +104,7 @@ export default function Navigation() {
 
             {/* Mobile Menu Button */}
             <motion.button
-              className="md:hidden p-2 text-gray-300 hover:text-white"
+              className="md:hidden p-2 text-gray-400 hover:text-[#00ff88]"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               whileTap={{ scale: 0.95 }}
             >
@@ -124,29 +124,29 @@ export default function Navigation() {
             exit={{ opacity: 0 }}
           >
             <motion.div
-              className="absolute inset-0 bg-black/50 backdrop-blur-sm"
+              className="absolute inset-0 bg-black/90 backdrop-blur-xl"
               onClick={() => setIsMobileMenuOpen(false)}
             />
             <motion.div
-              className="absolute top-16 left-0 right-0 bg-[#0a0a0f]/95 backdrop-blur-md border-t border-white/10 shadow-xl"
+              className="absolute top-16 left-0 right-0 bg-black/95 backdrop-blur-xl border-b border-white/5"
               initial={{ y: -20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               exit={{ y: -20, opacity: 0 }}
               transition={{ duration: 0.2 }}
             >
-              <div className="px-4 py-6 space-y-4">
+              <div className="px-4 py-6 space-y-2">
                 {navItems.map((item, index) => (
                   <motion.button
                     key={item.label}
                     onClick={() => scrollToSection(item.href)}
                     className={`block w-full text-left px-4 py-3 rounded-lg text-base font-medium transition-colors ${
                       activeSection === item.href.slice(1)
-                        ? 'text-white bg-gradient-to-r from-purple-600/20 to-pink-600/20'
-                        : 'text-gray-300 hover:text-white hover:bg-white/5'
+                        ? 'text-[#00ff88] bg-[#00ff88]/10 border border-[#00ff88]/20'
+                        : 'text-gray-400 hover:text-white hover:bg-white/5'
                     }`}
                     initial={{ x: -20, opacity: 0 }}
                     animate={{ x: 0, opacity: 1 }}
-                    transition={{ delay: index * 0.1 }}
+                    transition={{ delay: index * 0.05 }}
                     whileTap={{ scale: 0.98 }}
                   >
                     {item.label}
