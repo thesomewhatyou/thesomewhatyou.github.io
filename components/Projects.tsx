@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { Download, Users, ExternalLink, ArrowUpRight } from 'lucide-react';
+import { Download, Users, ArrowUpRight } from 'lucide-react';
 
 const projects = [
   {
@@ -72,31 +72,28 @@ export default function Projects() {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section id="projects" className="py-32 bg-black relative overflow-hidden">
-      {/* Background decoration */}
+    <section id="projects" className="relative overflow-hidden bg-background-secondary py-32 px-4">
       <div className="absolute inset-0 grid-bg opacity-20" />
       <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-1/3 right-1/3 w-96 h-96 bg-[#00ffff] rounded-full filter blur-3xl" />
+        <div className="absolute right-1/3 top-1/3 h-96 w-96 rounded-full bg-accent blur-3xl" />
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10" ref={ref}>
+      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" ref={ref}>
         <motion.h2
-          className="text-5xl md:text-6xl font-bold text-center mb-20 font-['Space_Grotesk'] text-white"
+          className="mb-20 text-center font-['Poppins'] text-5xl font-bold text-foreground md:text-6xl"
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          Featured <span className="text-[#00ff88]">Projects</span>
+          Featured <span className="text-primary">Projects</span>
         </motion.h2>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {projects.map((project, index) => (
             <motion.div
               key={project.id}
               className={`
-                group bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 
-                hover:border-[#00ff88]/50 transition-all duration-300 relative overflow-hidden
-                flex flex-col
+                group relative flex flex-col overflow-hidden rounded-3xl border border-border bg-card/70 p-6 backdrop-blur-md transition-all duration-300 hover:border-primary/50
                 ${project.featured ? 'md:col-span-2 lg:col-span-3' : ''}
               `}
               initial={{ opacity: 0, y: 30 }}
@@ -104,41 +101,30 @@ export default function Projects() {
               transition={{ duration: 0.6, delay: index * 0.1 }}
               whileHover={{ y: -5 }}
             >
-              {/* Top gradient line */}
-              <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-[#00ff88] to-[#00ffff] scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
+              <div className="absolute right-0 top-0 h-0.5 w-0 bg-gradient-to-r from-primary to-accent transition-all duration-500 group-hover:w-full" />
 
-              {/* Header */}
-              <div className="flex items-start justify-between mb-4">
+              <div className="mb-4 flex items-start justify-between">
                 <div>
-                  <h3 className="text-2xl font-bold text-white mb-1 font-['Space_Grotesk']">{project.title}</h3>
-                  {project.subtitle && (
-                    <p className="text-sm text-gray-500 font-mono">{project.subtitle}</p>
-                  )}
+                  <h3 className="font-['Poppins'] text-2xl font-bold text-foreground">{project.title}</h3>
+                  {project.subtitle && <p className="mt-1 font-mono text-sm text-muted">{project.subtitle}</p>}
                 </div>
                 <span
-                  className={`
-                    px-3 py-1 text-xs font-medium rounded-full whitespace-nowrap font-mono border
-                    ${
-                      project.status === 'Active'
-                        ? 'bg-[#00ff88]/10 text-[#00ff88] border-[#00ff88]/30'
-                        : 'bg-gray-500/10 text-gray-400 border-gray-500/30'
-                    }
-                  `}
+                  className={`whitespace-nowrap rounded-full border px-3 py-1 font-mono text-xs font-medium ${
+                    project.status === 'Active'
+                      ? 'border-primary/30 bg-primary/10 text-primary'
+                      : 'border-muted/30 bg-muted/10 text-muted'
+                  }`}
                 >
                   {project.status}
                 </span>
               </div>
 
-              {/* Description */}
-              <p className="text-gray-400 mb-4 flex-grow leading-relaxed">
-                {project.description}
-              </p>
+              <p className="mb-4 flex-grow leading-relaxed text-muted">{project.description}</p>
 
-              {/* Stats (if available) */}
               {project.stats && (
-                <div className="flex gap-4 mb-4">
+                <div className="mb-4 flex gap-4">
                   {project.stats.map((stat, idx) => (
-                    <div key={idx} className="flex items-center gap-2 text-sm text-gray-500">
+                    <div key={idx} className="flex items-center gap-2 text-sm text-muted">
                       <stat.icon size={16} />
                       <span className="font-mono">{stat.label}</span>
                     </div>
@@ -146,32 +132,32 @@ export default function Projects() {
                 </div>
               )}
 
-              {/* Tags */}
-              <div className="flex flex-wrap gap-2 mb-4">
+              <div className="mb-4 flex flex-wrap gap-2">
                 {project.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="px-3 py-1 text-xs font-medium bg-white/5 text-gray-400 rounded-full border border-white/10 font-mono"
+                    className="rounded-full border border-border/60 bg-background/40 px-3 py-1 font-mono text-xs font-medium text-muted"
                   >
                     {tag}
                   </span>
                 ))}
               </div>
 
-              {/* Link */}
               <motion.a
                 href={project.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-sm font-medium text-[#00ff88] hover:text-[#00ffff] transition-colors mt-auto group/link"
+                className="group/link mt-auto inline-flex items-center gap-2 font-medium text-primary transition-colors hover:text-accent"
                 whileHover={{ x: 5 }}
               >
                 View Project
-                <ArrowUpRight size={16} className="group-hover/link:translate-x-1 group-hover/link:-translate-y-1 transition-transform" />
+                <ArrowUpRight
+                  size={16}
+                  className="transition-transform group-hover/link:translate-x-1 group-hover/link:-translate-y-1"
+                />
               </motion.a>
-              
-              {/* Hover glow effect */}
-              <div className="absolute inset-0 rounded-xl bg-[#00ff88]/0 group-hover:bg-[#00ff88]/5 transition-all duration-300 pointer-events-none" />
+
+              <div className="absolute inset-0 rounded-3xl bg-primary/0 transition-all duration-300 group-hover:bg-primary/5 pointer-events-none" />
             </motion.div>
           ))}
         </div>

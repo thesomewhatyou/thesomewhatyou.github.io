@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { Video, Package, Film, Code } from 'lucide-react';
+import { Video, Package, Film } from 'lucide-react';
 
 const contentCategories = [
   {
@@ -28,11 +28,7 @@ const contentCategories = [
   {
     icon: Film,
     title: 'Animation',
-    items: [
-      'Out In Space series',
-      'ROBLOX animations',
-      'Short film projects',
-    ],
+    items: ['Out In Space series', 'ROBLOX animations', 'Short film projects'],
   },
 ];
 
@@ -53,73 +49,73 @@ export default function Content() {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section id="content" className="py-24 bg-gradient-to-b from-[#0f0f14] to-[#0a0a0f] relative overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-1/4 right-1/4 w-96 h-96 bg-pink-500 rounded-full filter blur-3xl" />
+    <section id="content" className="relative overflow-hidden bg-background-secondary py-32">
+      <div className="absolute inset-0 grid-bg opacity-20" />
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute bottom-1/4 right-1/4 h-96 w-96 rounded-full bg-accent blur-3xl" />
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10" ref={ref}>
+      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" ref={ref}>
         <motion.h2
-          className="text-4xl md:text-5xl font-bold text-center mb-16 bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent"
+          className="mb-20 text-center font-['Poppins'] text-5xl font-bold text-foreground md:text-6xl"
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
         >
-          Content Creation
+          Content <span className="text-primary">Creation</span>
         </motion.h2>
 
-        {/* Content Categories */}
-        <div className="grid md:grid-cols-3 gap-8 mb-16">
+        <div className="mb-16 grid gap-8 md:grid-cols-3">
           {contentCategories.map((category, index) => (
             <motion.div
               key={category.title}
-              className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-purple-500/50 transition-all duration-300"
+              className="group rounded-3xl border border-border bg-card/70 p-6 backdrop-blur-md transition-all duration-300 hover:border-primary/50"
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
               whileHover={{ y: -5 }}
             >
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-purple-600 to-pink-600 flex items-center justify-center">
-                  <category.icon size={24} className="text-white" />
+              <div className="mb-5 flex items-center gap-3">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                  <category.icon size={24} />
                 </div>
-                <h3 className="text-xl font-bold text-white">{category.title}</h3>
+                <h3 className="font-['Poppins'] text-xl font-semibold text-foreground">
+                  {category.title}
+                </h3>
               </div>
               <ul className="space-y-3">
                 {category.items.map((item) => (
                   <motion.li
                     key={item}
-                    className="text-gray-300 pl-4 border-l-2 border-purple-500/30 hover:border-purple-500 transition-colors"
+                    className="border-l-2 border-border/60 pl-4 text-muted transition-colors hover:border-primary hover:text-foreground"
                     whileHover={{ x: 5 }}
                   >
                     {item}
                   </motion.li>
                 ))}
               </ul>
+              <div className="absolute inset-0 rounded-3xl bg-primary/0 transition-all duration-300 group-hover:bg-primary/5" />
             </motion.div>
           ))}
         </div>
 
-        {/* Skills Section */}
         <motion.div
-          className="bg-white/5 backdrop-blur-sm rounded-xl p-8 border border-white/10"
+          className="rounded-3xl border border-border bg-card/70 p-8 backdrop-blur-md"
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.8 }}
+          transition={{ duration: 0.6, delay: 0.5 }}
         >
-          <div className="flex items-center justify-center gap-3 mb-8">
-            <Code size={32} className="text-purple-400" />
-            <h3 className="text-3xl font-bold text-white">Skills & Interests</h3>
-          </div>
-          <div className="flex flex-wrap gap-3 justify-center">
+          <h3 className="mb-8 text-center font-['Poppins'] text-2xl font-semibold text-foreground">
+            Skills & Interests
+          </h3>
+          <div className="flex flex-wrap justify-center gap-3">
             {skills.map((skill, index) => (
               <motion.span
                 key={skill}
-                className="px-4 py-2 bg-gradient-to-r from-purple-600/20 to-pink-600/20 border border-purple-500/30 rounded-full text-sm font-medium text-gray-200 hover:border-purple-500 transition-all duration-300"
+                className="rounded-full border border-border/60 bg-background/40 px-4 py-2 font-medium text-muted transition-all duration-300 hover:border-primary/60 hover:bg-primary/5 hover:text-primary"
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                transition={{ duration: 0.4, delay: 0.8 + index * 0.05 }}
+                transition={{ duration: 0.4, delay: 0.6 + index * 0.04 }}
                 whileHover={{ scale: 1.05, y: -3 }}
               >
                 {skill}
