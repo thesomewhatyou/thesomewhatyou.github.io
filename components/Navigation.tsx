@@ -78,7 +78,7 @@ export default function Navigation() {
             </motion.div>
 
             {/* Desktop Navigation */}
-            <div className="hidden md:flex space-x-8">
+            <div className="hidden md:flex gap-8">
               {navItems.map((item) => (
                 <motion.button
                   key={item.label}
