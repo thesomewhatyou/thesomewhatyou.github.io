@@ -31,13 +31,13 @@ export default function Contact() {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section id="contact" className="relative overflow-hidden bg-background py-32">
+    <section id="contact" className="relative overflow-hidden bg-background py-36">
       <div className="absolute inset-0 grid-bg opacity-20" />
       <div className="absolute inset-0 opacity-10">
         <div className="absolute left-1/2 top-1/2 h-96 w-96 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary blur-3xl" />
       </div>
 
-      <div className="relative z-10 mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center" ref={ref}>
+      <div className="relative z-10 mx-auto max-w-4xl px-4 sm:px-6 text-center" ref={ref}>
         <motion.div
           className="mx-auto mb-8 flex h-20 w-20 items-center justify-center rounded-3xl border border-primary/40 bg-card/80 text-primary shadow-[0_40px_90px_-45px_rgba(74,222,128,0.55)]"
           initial={{ opacity: 0, scale: 0.8 }}

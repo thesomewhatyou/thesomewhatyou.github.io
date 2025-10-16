@@ -5,8 +5,8 @@ import { Heart } from 'lucide-react';
 
 export default function Footer() {
   return (
-    <footer className="relative border-t border-border bg-background py-12">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <footer className="relative border-t border-border bg-background py-14">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <motion.div
           className="flex flex-col items-center justify-center gap-4"
           initial={{ opacity: 0 }}

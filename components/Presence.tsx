@@ -37,13 +37,13 @@ export default function Presence() {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section id="presence" className="relative overflow-hidden bg-background py-32">
+    <section id="presence" className="relative overflow-hidden bg-background py-36">
       <div className="absolute inset-0 grid-bg opacity-25" />
       <div className="absolute inset-0 opacity-10">
         <div className="absolute left-1/3 top-16 h-80 w-80 rounded-full bg-primary blur-3xl" />
       </div>
 
-      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" ref={ref}>
+      <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6" ref={ref}>
         <motion.h2
           className="mb-16 text-center font-['Poppins'] text-5xl font-semibold text-foreground md:text-6xl"
           initial={{ opacity: 0, y: 30 }}

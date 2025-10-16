@@ -62,14 +62,14 @@ export default function Skills() {
   const isInView = useInView(ref, { once: true, margin: '-120px' });
 
   return (
-    <section id="skills" className="relative overflow-hidden bg-background py-32">
+    <section id="skills" className="relative overflow-hidden bg-background py-36">
       <div className="absolute inset-0 grid-bg opacity-20" />
       <div className="absolute inset-0 opacity-10">
         <div className="absolute right-10 top-10 h-80 w-80 rounded-full bg-primary blur-3xl" />
         <div className="absolute bottom-10 left-20 h-80 w-80 rounded-full bg-accent blur-3xl" />
       </div>
 
-      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" ref={ref}>
+      <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6" ref={ref}>
         <motion.div
           className="mx-auto mb-20 max-w-3xl text-center"
           initial={{ opacity: 0, y: 30 }}
@@ -120,7 +120,7 @@ export default function Skills() {
           })}
         </motion.div>
 
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
           {skills.map((skillGroup, groupIndex) => (
             <motion.div
               key={skillGroup.category}

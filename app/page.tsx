@@ -12,7 +12,7 @@ export default function Home() {
   return (
     <>
       <Navigation />
-      <main>
+      <main className="flex flex-col">
         <Hero />
         <About />
         <Skills />

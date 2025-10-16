@@ -49,13 +49,13 @@ export default function Content() {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section id="content" className="relative overflow-hidden bg-background-secondary py-32">
+    <section id="content" className="relative overflow-hidden bg-background-secondary py-36">
       <div className="absolute inset-0 grid-bg opacity-20" />
       <div className="absolute inset-0 opacity-10">
         <div className="absolute bottom-1/4 right-1/4 h-96 w-96 rounded-full bg-accent blur-3xl" />
       </div>
 
-      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" ref={ref}>
+      <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6" ref={ref}>
         <motion.h2
           className="mb-20 text-center font-['Poppins'] text-5xl font-bold text-foreground md:text-6xl"
           initial={{ opacity: 0, y: 30 }}
