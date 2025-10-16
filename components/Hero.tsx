@@ -1,96 +1,121 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Github, Package, Twitter } from 'lucide-react';
+import { Github, Package, Twitter, ChevronDown } from 'lucide-react';
 
 export default function Hero() {
   return (
-    <section className="relative h-screen flex items-center justify-center overflow-hidden">
-      {/* Animated gradient background */}
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
+      {/* Animated grid background */}
+      <div className="absolute inset-0 grid-bg opacity-30" />
+      
+      {/* Gradient orbs */}
       <motion.div
-        className="absolute inset-0 bg-gradient-to-br from-purple-600 via-indigo-600 to-pink-500"
+        className="absolute top-20 -left-20 w-96 h-96 rounded-full blur-3xl opacity-20"
+        style={{
+          background: 'radial-gradient(circle, #00ff88 0%, transparent 70%)',
+        }}
         animate={{
-          backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
+          x: [0, 50, 0],
+          y: [0, 30, 0],
         }}
         transition={{
-          duration: 8,
+          duration: 10,
           repeat: Infinity,
           ease: 'easeInOut',
         }}
+      />
+      
+      <motion.div
+        className="absolute bottom-20 -right-20 w-96 h-96 rounded-full blur-3xl opacity-20"
         style={{
-          backgroundSize: '400% 400%',
+          background: 'radial-gradient(circle, #00ffff 0%, transparent 70%)',
+        }}
+        animate={{
+          x: [0, -50, 0],
+          y: [0, -30, 0],
+        }}
+        transition={{
+          duration: 12,
+          repeat: Infinity,
+          ease: 'easeInOut',
         }}
       />
       
-      {/* Dark overlay */}
-      <div className="absolute inset-0 bg-black/30" />
-      
       {/* Floating particles */}
-      {[...Array(12)].map((_, i) => (
+      {[...Array(20)].map((_, i) => (
         <motion.div
           key={i}
-          className="absolute w-1 h-1 bg-white/60 rounded-full"
-          initial={{
-            x: `${Math.random() * 100}%`,
-            y: '100vh',
-            opacity: 0,
+          className="absolute w-1 h-1 bg-[#00ff88] rounded-full"
+          style={{
+            left: `${Math.random() * 100}%`,
+            top: `${Math.random() * 100}%`,
           }}
           animate={{
-            y: '-100px',
-            opacity: [0, 0.6, 0],
+            opacity: [0, 0.8, 0],
+            scale: [0, 1.5, 0],
           }}
           transition={{
-            duration: 8 + Math.random() * 4,
+            duration: 3 + Math.random() * 2,
             repeat: Infinity,
-            delay: Math.random() * 8,
-            ease: 'linear',
+            delay: Math.random() * 3,
+            ease: 'easeInOut',
           }}
         />
       ))}
       
       {/* Content */}
-      <div className="relative z-10 text-center px-4">
+      <div className="relative z-10 text-center px-4 max-w-5xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
+          {/* Name with glow effect */}
           <motion.h1 
-            className="text-6xl md:text-8xl font-bold mb-4"
+            className="text-7xl md:text-9xl font-bold mb-6 font-['Space_Grotesk']"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.3 }}
           >
-            <span className="block text-white drop-shadow-lg">Gabriel</span>
-            <span className="block text-4xl md:text-5xl text-white/80 font-medium mt-2">
-              thesomewhatyou
-            </span>
+            <span className="block text-white glow-text">GABRIEL</span>
           </motion.h1>
           
-          <motion.p
-            className="text-xl md:text-2xl text-white/90 mb-4 max-w-3xl mx-auto"
+          <motion.div
+            className="inline-block mb-8"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
+          >
+            <span className="text-2xl md:text-3xl text-[#00ff88] font-mono tracking-wider">
+              @thesomewhatyou
+            </span>
+          </motion.div>
+          
+          <motion.p
+            className="text-xl md:text-2xl text-gray-400 mb-4 max-w-3xl mx-auto leading-relaxed"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.7 }}
           >
             Minecraft Modpack Developer • Content Creator • Open Source Enthusiast
           </motion.p>
           
           <motion.p
-            className="text-lg md:text-xl text-white/70 italic mb-8"
+            className="text-lg md:text-xl text-gray-500 font-mono mb-12"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.7 }}
+            transition={{ duration: 0.8, delay: 0.9 }}
           >
-            Hi! I make Minecraft things.
+            {'>'} Making Minecraft things_
           </motion.p>
           
-          {/* Social Links */}
+          {/* Social Links with sleek design */}
           <motion.div
             className="flex justify-center gap-6"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.9 }}
+            transition={{ duration: 0.8, delay: 1.1 }}
           >
             {[
               { icon: Github, href: 'https://github.com/thesomewhatyou', label: 'GitHub' },
@@ -102,12 +127,13 @@ export default function Hero() {
                 href={href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-14 h-14 flex items-center justify-center rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-white/20 transition-all duration-300"
-                whileHover={{ scale: 1.1, y: -3 }}
+                className="group relative w-14 h-14 flex items-center justify-center rounded-lg bg-white/5 border border-white/10 text-white hover:border-[#00ff88] transition-all duration-300"
+                whileHover={{ scale: 1.1, y: -5 }}
                 whileTap={{ scale: 0.95 }}
                 aria-label={label}
               >
-                <Icon size={24} />
+                <Icon size={22} className="group-hover:text-[#00ff88] transition-colors duration-300" />
+                <div className="absolute inset-0 rounded-lg bg-[#00ff88]/0 group-hover:bg-[#00ff88]/10 transition-all duration-300" />
               </motion.a>
             ))}
           </motion.div>
@@ -116,27 +142,24 @@ export default function Hero() {
       
       {/* Scroll indicator */}
       <motion.div
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
-        initial={{ opacity: 0, y: -10 }}
-        animate={{ opacity: 1, y: 0 }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
         transition={{
           duration: 1,
-          delay: 1.2,
-          repeat: Infinity,
-          repeatType: 'reverse',
+          delay: 1.5,
         }}
       >
-        <div className="w-6 h-10 border-2 border-white/40 rounded-full flex justify-center">
-          <motion.div
-            className="w-1.5 h-2 bg-white/60 rounded-full mt-2"
-            animate={{ y: [0, 12, 0] }}
-            transition={{
-              duration: 1.5,
-              repeat: Infinity,
-              ease: 'easeInOut',
-            }}
-          />
-        </div>
+        <motion.div
+          animate={{ y: [0, 10, 0] }}
+          transition={{
+            duration: 2,
+            repeat: Infinity,
+            ease: 'easeInOut',
+          }}
+        >
+          <ChevronDown size={32} className="text-[#00ff88]" />
+        </motion.div>
       </motion.div>
     </section>
   );
