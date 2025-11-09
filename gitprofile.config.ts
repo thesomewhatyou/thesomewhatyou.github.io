@@ -63,7 +63,7 @@ const CONFIG = {
     'TypeScript',
     'React',
     'Bash',
-    'Node.js'
+    'Node.js',
     'SQLite',
     'PostgreSQL',
     'Git',
