@@ -1,8 +1,24 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import { VitePWA } from 'vite-plugin-pwa';
+import { webcrypto as nodeWebcrypto, randomFillSync } from 'crypto';
 import CONFIG from './gitprofile.config';
 import { createHtmlPlugin } from 'vite-plugin-html';
+
+// Ensure Vite can generate websocket tokens even on Node versions without a global crypto
+if (!globalThis.crypto?.getRandomValues) {
+  const fallbackCrypto = nodeWebcrypto ?? {
+    getRandomValues: (array: Uint8Array) => {
+      randomFillSync(array);
+      return array;
+    },
+  };
+
+  Object.defineProperty(globalThis, 'crypto', {
+    configurable: true,
+    value: fallbackCrypto,
+  });
+}
 
 // https://vitejs.dev/config/
 export default defineConfig({

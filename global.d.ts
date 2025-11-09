@@ -399,3 +399,8 @@ interface Config {
 }
 
 declare const CONFIG: Config;
+
+declare module 'crypto' {
+  export const randomFillSync: (buffer: ArrayBufferView) => ArrayBufferView;
+  export const webcrypto: Crypto | undefined;
+}

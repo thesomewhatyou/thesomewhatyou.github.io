@@ -13,13 +13,14 @@ const CONFIG = {
   projects: {
     github: {
       display: true, // Display GitHub projects?
-      header: 'Github Projects',
-      mode: 'automatic', // Mode can be: 'automatic' or 'manual'
+      header: 'Work I Guess',
+      mode: 'manual', // Mode can be: 'automatic' or 'manual'
+      // always wondered why it didn't work
       automatic: {
-        sortBy: 'stars', // Sort projects by 'stars' or 'updated'
-        limit: 8, // How many projects to display.
+        sortBy: 'updated', // Sort projects by 'stars' or 'updated'
+        limit: 2, // How many projects to display.
         exclude: {
-          forks: false, // Forked projects will not be displayed if set to true.
+          forks: true, // Forked projects will not be displayed if set to true.
           projects: [], // These projects will not be displayed. example: ['arifszn/my-project1', 'arifszn/my-project2']
         },
       },
@@ -34,12 +35,21 @@ const CONFIG = {
       projects: [
         {
           title: 'gabe',
-          description:
-            'discord friend. or foe.',
+          description: 'discord friend. or foe.',
+          // happy eslint you stinky boi
           imageUrl:
-            'https://img.freepik.com/free-vector/illustration-gallery-icon_53876-27002.jpg',
+            'https://raw.githubusercontent.com/thesomewhatyou/gabe/refs/heads/master/docs/assets/me.jpg',
           // cannot find photo
-          link: 'https://thesomewhatyou.me',
+          // nvm i found it :D
+          link: 'https://thesomewhatyou.me/gabe',
+        },
+        {
+          title: 'GabeOS',
+          description: 'You get it, at this point.',
+          imageUrl:
+            'https://raw.githubusercontent.com/thesomewhatyou/GabeOS/refs/heads/master/docs/assets/me.jpg',
+          link: 'https://gabeos.dev',
+          // guess i'm OOOGLY DOO!  HULLHABA HULLHABA HULLHABA HULLHABA AHHHHHHHHH
         },
       ],
     },
@@ -47,17 +57,18 @@ const CONFIG = {
   seo: { title: 'my portfolio.', description: '', imageURL: '' },
   social: {
     x: 'thesomewhatyou',
-    reddit: 'minecraftdummy57',
+    reddit: 'minecraftdummy57', // i am a stinky no good redittor
+    github: 'thesomewhatyou',
     discord: 'thesomewhatyou',
-    telegram: '',
     website: 'https://www.thesomewhatyou.me',
-    phone: '',
+    phone: '', // i prefer not to get my number scraped thx
     email: 'gabe@thesomewhatyou.me',
   },
-  resume: {
-    fileUrl:
-      'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf', // Empty fileUrl will hide the `Download Resume` button.
-  },
+  // sorry, lost my resume
+  // "but i already gave you an internship!"
+  // aw well guess there's nothing you can do abt it now
+  // *proceeds to forcefully give me a job so i have to give them a resume*
+  // that son of a-
   skills: [
     'JavaScript',
     'TypeScript',
@@ -80,6 +91,7 @@ const CONFIG = {
       from: 'July 2025',
       to: 'Present',
       companyLink: 'https://gabeos.dev',
+      businessEmail: 'gabriel@gabeos.dev',
     },
   ],
   // Display articles from your medium or dev account. (Optional)
@@ -88,17 +100,23 @@ const CONFIG = {
     username: '', // to hide blog section, keep it empty
     limit: 2, // How many articles to display. Max is 10.
   },
+  // don't have a blog having a blog is just a narcissistic endeavor anyway
+  // says the person who named a whole os over himself + has a domain named after himself
   googleAnalytics: {
     id: '', // GA3 tracking id/GA4 tag id UA-XXXXXXXXX-X | G-XXXXXXXXXX
   },
-  // Track visitor interaction and behavior. https://www.hotjar.com
+  // do i really need data collection on my personal site
   hotjar: { id: '', snippetVersion: 6 },
+  // copilot pls tell me what this does in the next comment
+  // i think it tracks user behavior on the site or smth
+  // ok thx but if i don't need google analytics then i probably don't need this either
   themeConfig: {
-    defaultTheme: 'lofi',
+    defaultTheme: 'business',
+    // too formal but aesthetic?? i like it but it sounds boring
 
     // Hides the switch in the navbar
     // Useful if you want to support a single color mode
-    disableSwitch: false,
+    disableSwitch: true,
 
     // Should use the prefers-color-scheme media-query,
     // using user system preferences, instead of the hardcoded defaultTheme
@@ -108,44 +126,7 @@ const CONFIG = {
     displayAvatarRing: true,
 
     // Available themes. To remove any theme, exclude from here.
-    themes: [
-      'light',
-      'dark',
-      'cupcake',
-      'bumblebee',
-      'emerald',
-      'corporate',
-      'synthwave',
-      'retro',
-      'cyberpunk',
-      'valentine',
-      'halloween',
-      'garden',
-      'forest',
-      'aqua',
-      'lofi',
-      'pastel',
-      'fantasy',
-      'wireframe',
-      'black',
-      'luxury',
-      'dracula',
-      'cmyk',
-      'autumn',
-      'business',
-      'acid',
-      'lemonade',
-      'night',
-      'coffee',
-      'winter',
-      'dim',
-      'nord',
-      'sunset',
-      'caramellatte',
-      'abyss',
-      'silk',
-      'procyon',
-    ],
+    themes: ['dark', 'business'],
   },
 
   // Optional Footer. Supports plain text or HTML.
@@ -153,9 +134,12 @@ const CONFIG = {
       class="text-primary" href="https://github.com/arifszn/gitprofile"
       target="_blank"
       rel="noreferrer"
-    >GitProfile</a> and ❤️`,
+    >GitProfile</a> and me. Gabriel Piss... not copyright.</footer>`,
 
   enablePWA: true,
 };
 
 export default CONFIG;
+
+// looks good to me
+// and i fixed the issue :3
